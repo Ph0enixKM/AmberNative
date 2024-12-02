@@ -1,5 +1,6 @@
 use heraclitus_compiler::prelude::*;
 use itertools::Itertools;
+use serde::{Deserialize, Serialize};
 use crate::docs::module::DocumentationModule;
 use crate::modules::variable::constinit::ConstInit;
 use crate::utils::metadata::{ParserMetadata, TranslateMetadata};
@@ -44,7 +45,7 @@ use crate::modules::builtin::{
 use super::comment_doc::CommentDoc;
 use super::comment::Comment;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum StatementType {
     Expr(Expr),
     VariableInit(VariableInit),
@@ -75,7 +76,7 @@ pub enum StatementType {
     ConstInit(ConstInit),
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Statement {
     pub value: Option<StatementType>
 }

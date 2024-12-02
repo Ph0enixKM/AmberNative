@@ -1,5 +1,6 @@
 use std::ops::Sub;
 use heraclitus_compiler::prelude::*;
+use serde::{Deserialize, Serialize};
 use crate::docs::module::DocumentationModule;
 use crate::modules::expression::expr::{Expr, ExprType};
 use crate::modules::types::{Type, Typed};
@@ -10,7 +11,7 @@ use crate::utils::TranslateMetadata;
 use crate::{handle_binop, error_type_match};
 use super::BinOp;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Range {
     from: Box<Expr>,
     to: Box<Expr>,
