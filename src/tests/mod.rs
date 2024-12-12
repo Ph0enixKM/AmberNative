@@ -9,6 +9,7 @@ use std::process::{Command, Stdio};
 pub mod cli;
 pub mod errors;
 pub mod extra;
+pub mod types;
 pub mod postprocessor;
 mod stdlib;
 mod validity;
