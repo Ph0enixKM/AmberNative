@@ -26,6 +26,7 @@ parts:
     override-pull: |
       craftctl default
       craftctl set version=$(cat $CRAFT_PART_SRC/Cargo.toml | tomlq -rc '.package.version')
+      cp -r ${CRAFT_PART_SRC}/std ${CRAFT_PART_INSTALL}/std
 
   deps:
     plugin: nil
